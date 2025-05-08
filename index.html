@@ -1,24 +1,59 @@
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Badminton Matchmaker</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Matching Apps</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Select2 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
-  <h2>Tambah Pemain</h2>
-  <form id="player-form">
-    <input type="text" id="player-name" placeholder="Nama Pemain" required>
-    <input type="number" id="player-level" placeholder="Level (1-100)" min="1" max="100" required>
-    <button type="submit">Tambah Pemain</button>
-  </form>
 
-  <h3>Daftar Pemain</h3>
-  <ul id="player-list"></ul>
+  <div class="app-container">
+    <div class="title-bar">
+      <h1>Matching Apps</h1>
+    </div>
 
-  <button id="match-btn">Generate Match</button>
-  <div id="match-results"></div>
+    <div class="form-box">
+      <h2>Tambah Pemain Baru</h2>
+      <form id="player-form" class="player-form">
+        <div class="form-row">
+          <input type="text" id="player-name" placeholder="Nama Pemain" required />
+          <input type="number" id="player-level" placeholder="Level (1-100)" min="1" max="100" required />
+        </div>
+        <button type="submit">Tambah Pemain</button>
+      </form>
+    </div>
 
+    <!-- Cari & Tambah Pemain -->
+    <div class="form-box">
+      <h2>Masukan Pemain Ke List</h2>
+      <select id="search-player" style="width: 100%">
+        <option value="">Pilih pemain...</option>
+      </select>
+      <button id="add-selected-player">Tambah ke List Pemain</button>
+    </div>
+
+    <!-- Daftar Pemain -->
+    <div class="form-box">
+      <h2>List Pemain</h2>
+      <ul id="player-list"></ul>
+      <button id="clear-list">Hapus Semua List Pemain</button>
+    </div>
+
+    <div class="form-box">
+      <label for="court-count"><strong>Jumlah Court Aktif</strong></label>
+      <input type="number" id="court-count" placeholder="Masukan Jumlah Court Dahulu (1-10) . . ." min="1" max="10" />
+      <button id="match-btn">Generate Match</button>
+    </div>
+    <div id="match-results"></div>
+  </div>
+
+  <!-- JS Libraries -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

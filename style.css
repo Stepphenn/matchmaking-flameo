@@ -1,63 +1,221 @@
-/* style.css */
+/* Reset dan Global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    background-color: #f8f9fa;
-    color: #333;
-    max-width: 800px;
-    margin: auto;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 10px;
+  background-color: #f4f7f9;
+  color: #333;
+}
+
+/* Container utama */
+.app-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* Judul atas */
+.title-bar {
+  background-color: #6fa8dc;
+  padding: 15px;
+  text-align: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.title-bar h1 {
+  color: white;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+/* Kotak form */
+.form-box {
+  background-color: white;
+  border: 1px solid #999;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0; /* Ini yang ditambahkan */
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-box h2 {
+  color: #6fa8dc;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+/* Form, input, button */
+form, select, button, ul, #match-results {
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 100%;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  padding: 12px;
+  background-color: #3498db;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+/* List pemain */
+ul#player-list {
+  list-style-type: none;
+  padding-left: 0;
+  max-height: 250px; /* Batasi tinggi */
+  overflow-y: auto;  /* Aktifkan scroll */
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+ul#player-list li {
+  background-color: #ecf0f1;
+  padding: 8px 12px;
+  border-radius: 5px;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+ul#player-list li:hover {
+  cursor: pointer;
+  background-color: #dfe6e9;
+}
+
+/* Court */
+#match-results {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.court {
+  background-color: #ffffff;
+  border-left: 5px solid #3498db;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease-in-out;
+  transition: transform 0.2s ease;
+}
+
+.court:hover {
+  transform: scale(1.02);
+}
+
+.court h4 {
+  margin-bottom: 10px;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 4px;
+}
+
+.player-pair {
+  background-color: #ecf0f1;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.player-pair:last-child {
+  margin-bottom: 0;
+}
+
+.vs-text {
+  text-align: center;
+  font-weight: bold;
+  color: #555;
+  margin: 6px 0;
+  font-size: 0.9rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  
-  input, button {
-    margin: 5px 0;
-    padding: 10px 14px;
-    font-size: 16px;
-    width: 100%;
-    box-sizing: border-box;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  button {
-    cursor: pointer;
-    background-color: #007bff;
-    border: none;
-    color: white;
-    border-radius: 6px;
-    transition: background-color 0.2s ease;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  form {
-    margin-bottom: 15px;
-    display: flex;
+}
+
+/* Form flex */
+.player-form .form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.player-form input[type="text"],
+.player-form input[type="number"] {
+  flex: 1;
+  min-width: 150px;
+}
+
+.player-form button {
+  height: 48px;
+}
+
+/* Tombol hapus semua */
+#clear-list {
+  background-color: #e74c3c;
+  color: white;
+}
+
+#clear-list:hover {
+  background-color: #c0392b;
+}
+
+/* Responsif mobile */
+@media (max-width: 600px) {
+  .player-form .form-row {
     flex-direction: column;
+    align-items: stretch;
   }
-  
-  .court {
-    margin-top: 20px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  #add-selected-player {
+    width: 100%;
+    margin-top: 10px;
   }
-  
-  @media (min-width: 600px) {
-    form {
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-  
-    input[type=\"text\"], input[type=\"number\"] {
-      flex: 1 1 40%;
-    }
-  
-    button[type=\"submit\"] {
-      flex: 1 1 15%;
-    }
+
+  #match-results {
+    grid-template-columns: 1fr;
   }
-  
+}
