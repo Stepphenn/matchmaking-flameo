@@ -58,15 +58,15 @@ User → Controller → OMDb API → View → User
 
 ### 🔐 Login
 
-![Login](screenshots/login.png)
+![Login](login.png)
 
 ### 🎬 Movies
 
-![Movies](screenshots/movies.png)
+![Movies](movies.png)
 
 ### ⭐ Favourites
 
-![Favourites](screenshots/favourites.png)
+![Favourites](favourites.png)
 
 ### 📄 Detail Movie
 
