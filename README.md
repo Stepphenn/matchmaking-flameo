@@ -70,7 +70,7 @@ User → Controller → OMDb API → View → User
 
 ### 📄 Detail Movie
 
-![Detail](screenshots/detail.png)
+![Detail](detail.png)
 
 ---
 
